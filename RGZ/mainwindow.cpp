@@ -10,13 +10,16 @@ MainWindow::MainWindow(QWidget *parent) :
        db = QSqlDatabase::addDatabase("QSQLITE");
        db.setDatabaseName("/Users/daniil/Documents/SIBSUTIS/RGZ/database.db");
        if(db.open()){
-          ui->statusBar->showMessage("Yeees!");
+        //  ui->statusBar->showMessage("Yeees!");
        }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
+
+
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -28,11 +31,9 @@ void MainWindow::on_pushButton_clicked()
 
 
     if(!query.exec("SELECT name, password FROM Users")){
-            ui->statusBar->showMessage("No!");
+            ui->statusBar->showMessage("DataBaze don't add!");
         } else {
-            ui->statusBar->showMessage("DataBaze is add!");
-
-            int k = 0;
+           // ui->statusBar->showMessage("DataBaze is add!");
             while (query.next()) {
                 QString loginSet = query.value(0).toString();
                 QString passwordSet = query.value(1).toString();
@@ -40,6 +41,14 @@ void MainWindow::on_pushButton_clicked()
                // query.next();
                 if(loginSet == login & passwordSet == password){
                     ui->statusBar->showMessage("You are true!");
+                    hide();
+                         windowMainWindowCookbook = new MainWindowCookbook;
+                         windowMainWindowCookbook->show();
+
+//                        windowCookbook = new cookbook(this);
+//                        windowCookbook->show();
+                } else {
+                    ui->statusBar->showMessage("Who are you? Try again...");
                 }
           }
 

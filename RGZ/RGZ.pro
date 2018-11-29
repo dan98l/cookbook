@@ -26,13 +26,31 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    cookbook.cpp \
+    addcategory.cpp \
+    mainwindowcookbook.cpp \
+    addrecept.cpp \
+    addtime.cpp \
+    addtype.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    cookbook.h \
+    addcategory.h \
+    mainwindowcookbook.h \
+    addrecept.h \
+    addtime.h \
+    addtype.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    cookbook.ui \
+    addcategory.ui \
+    mainwindowcookbook.ui \
+    addrecept.ui \
+    addtime.ui \
+    addtype.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
